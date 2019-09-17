@@ -14,6 +14,7 @@ class NetworkManager{
     
     weak var launchControllerDelegate: LaunchControllerDelegate?
     weak var albumCellDelegate: AlbumCellDelegate?
+    weak var albumContentDelegate: AlbumContentDelegate?
     
     func getAlbumsList(){
         let requestString = FlickrConstants.basicRequestUrl+"flickr.photosets.getList"+FlickrConstants.apiKey+"&user_id=\(FlickrConstants.userId)"+FlickrConstants.responseFormat+FlickrConstants.noJsonCallback
@@ -29,14 +30,36 @@ class NetworkManager{
         }
     }
     
-    func getPrimaryImage(primaryImageId: String){
-        var content: Content = Content()
-        let imageRequestString = FlickrConstants.basicRequestUrl+"flickr.photos.getInfo"+FlickrConstants.apiKey+"&photo_id=\(primaryImageId)"+FlickrConstants.responseFormat+FlickrConstants.noJsonCallback
-        Alamofire.request(imageRequestString).responseJSON { (response) in
-            guard let imageValue = response.result.value else { return }
-            let imageJsonObj = JSON(imageValue)["photo"]
-            content = Content(object: imageJsonObj)
+    func getContent(by id: String){
+        let requestString = FlickrConstants.basicRequestUrl+"flickr.photos.getSizes"+FlickrConstants.apiKey+"&photo_id=\(id)"+FlickrConstants.responseFormat+FlickrConstants.noJsonCallback
+        Alamofire.request(requestString).responseJSON { (response) in
+            guard let value = response.result.value else { return }
+            let jsonObject = JSON(value)["sizes"]["size"].arrayValue
+            let object = jsonObject[jsonObject.count - 1]
+            let type = object["media"].stringValue
+            let originalURL = object["source"].stringValue
+            var previewURL = ""
+            for data in jsonObject{
+                if data["label"].stringValue == "Medium"{
+                    previewURL = data["source"].stringValue
+                }
+            }
+            let content = Content(type: type, previewURL: previewURL, originalURL: originalURL)
             self.albumCellDelegate?.didFinishDownloadingImageData(content: content)
+        }
+    }
+    
+    func getContentList(by id: String){
+        var ids: [String] = []
+        let requestString = FlickrConstants.basicRequestUrl+"flickr.photosets.getPhotos"+FlickrConstants.apiKey+"&photoset_id=\(id)"+FlickrConstants.responseFormat+FlickrConstants.noJsonCallback
+        Alamofire.request(requestString).responseJSON { (response) in
+            guard let value = response.result.value else { return }
+            let jsonObject = JSON(value)["photoset"]["photo"].arrayValue
+            for data in jsonObject{
+                let id = data["id"].stringValue
+                ids.append(id)
+            }
+            self.albumContentDelegate?.didFinishDownloadingData(photoIds: ids)
         }
     }
 }

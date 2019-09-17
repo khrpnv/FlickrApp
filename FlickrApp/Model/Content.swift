@@ -10,29 +10,41 @@ import Foundation
 import SwiftyJSON
 
 struct Content{
-    let id: String
-    let farmId: Int
-    let serverId: String
-    let secret: String
-    let format: String
+    let type: String
+    let previewURL: String
+    let originalURL: String
     
-    init(object: JSON) {
-        id = object["id"].stringValue
-        farmId = object["farm"].intValue
-        serverId = object["server"].stringValue
-        secret = object["secret"].stringValue
-        format = object["originalformat"].stringValue
-    }
-    
-    init(){
-        id = "0"
-        farmId = 0
-        serverId = "0"
-        secret = "0"
-        format = "0"
-    }
-    
-    var contentUrl: URL {
-        return URL(string: "https://farm\(farmId).staticflickr.com/\(serverId)/\(id)_\(secret)_m.\(format)")!
+    init(type: String, previewURL: String, originalURL: String) {
+        self.type = type
+        self.previewURL = previewURL.replacingOccurrences(of: "\\", with: "")
+        self.originalURL = originalURL.replacingOccurrences(of: "\\", with: "")
     }
 }
+
+/*
+ let id: String
+ let farmId: Int
+ let serverId: String
+ let secret: String
+ let format: String
+ 
+ init(object: JSON) {
+ id = object["id"].stringValue
+ farmId = object["farm"].intValue
+ serverId = object["server"].stringValue
+ secret = object["secret"].stringValue
+ format = object["originalformat"].stringValue
+ }
+ 
+ init(){
+ id = "0"
+ farmId = 0
+ serverId = "0"
+ secret = "0"
+ format = "0"
+ }
+ 
+ var contentUrl: URL {
+ return URL(string: "https://farm\(farmId).staticflickr.com/\(serverId)/\(id)_\(secret)_m.\(format)")!
+ }
+ */

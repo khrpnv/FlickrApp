@@ -11,6 +11,11 @@
 		EA1906AE232F8B850044A17B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA1906AD232F8B850044A17B /* AppDelegate.swift */; };
 		EA1906B5232F8B850044A17B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA1906B4232F8B850044A17B /* Assets.xcassets */; };
 		EA1906B8232F8B850044A17B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA1906B6232F8B850044A17B /* LaunchScreen.storyboard */; };
+		EA68A6B92330D2D2007D4EA6 /* ContentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68A6B72330D2D2007D4EA6 /* ContentCollectionViewCell.swift */; };
+		EA68A6BA2330D2D2007D4EA6 /* ContentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68A6B82330D2D2007D4EA6 /* ContentCollectionViewCell.xib */; };
+		EA68A6BC2330E7BA007D4EA6 /* AlbumContentDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68A6BB2330E7BA007D4EA6 /* AlbumContentDelegate.swift */; };
+		EA68A6C22330F723007D4EA6 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA68A6C02330F723007D4EA6 /* ContentViewController.swift */; };
+		EA68A6C32330F723007D4EA6 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA68A6C12330F723007D4EA6 /* ContentViewController.xib */; };
 		EA83F9F3232F8C8700F7E460 /* AlbumsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83F9F1232F8C8700F7E460 /* AlbumsViewController.swift */; };
 		EA83F9F4232F8C8700F7E460 /* AlbumsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA83F9F2232F8C8700F7E460 /* AlbumsViewController.xib */; };
 		EA83F9FA232F8D3800F7E460 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA83F9F8232F8D3800F7E460 /* LaunchViewController.swift */; };
@@ -37,6 +42,11 @@
 		EA1906B4232F8B850044A17B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA1906B7232F8B850044A17B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA1906B9232F8B850044A17B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EA68A6B72330D2D2007D4EA6 /* ContentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA68A6B82330D2D2007D4EA6 /* ContentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentCollectionViewCell.xib; sourceTree = "<group>"; };
+		EA68A6BB2330E7BA007D4EA6 /* AlbumContentDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumContentDelegate.swift; sourceTree = "<group>"; };
+		EA68A6C02330F723007D4EA6 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		EA68A6C12330F723007D4EA6 /* ContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
 		EA83F9F1232F8C8700F7E460 /* AlbumsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumsViewController.swift; sourceTree = "<group>"; };
 		EA83F9F2232F8C8700F7E460 /* AlbumsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumsViewController.xib; sourceTree = "<group>"; };
 		EA83F9F8232F8D3800F7E460 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
@@ -113,9 +123,37 @@
 			path = FlickrApp;
 			sourceTree = "<group>";
 		};
+		EA68A6B52330D2A6007D4EA6 /* AlbumTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EA83FA08232FA38D00F7E460 /* AlbumTableViewCell.swift */,
+				EA83FA09232FA38D00F7E460 /* AlbumTableViewCell.xib */,
+			);
+			path = AlbumTableViewCell;
+			sourceTree = "<group>";
+		};
+		EA68A6B62330D2B3007D4EA6 /* ContentCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				EA68A6B72330D2D2007D4EA6 /* ContentCollectionViewCell.swift */,
+				EA68A6B82330D2D2007D4EA6 /* ContentCollectionViewCell.xib */,
+			);
+			path = ContentCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		EA68A6BF2330F70B007D4EA6 /* ContentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EA68A6C02330F723007D4EA6 /* ContentViewController.swift */,
+				EA68A6C12330F723007D4EA6 /* ContentViewController.xib */,
+			);
+			path = ContentViewController;
+			sourceTree = "<group>";
+		};
 		EA83F9EC232F8C1A00F7E460 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EA68A6BF2330F70B007D4EA6 /* ContentViewController */,
 				EA83F9F5232F8D0800F7E460 /* LaunchViewController */,
 				EA83F9F0232F8C5A00F7E460 /* AlbumsViewController */,
 				EA83FA14232FC23F00F7E460 /* AlbumContentViewController */,
@@ -126,8 +164,8 @@
 		EA83F9ED232F8C2000F7E460 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EA83FA08232FA38D00F7E460 /* AlbumTableViewCell.swift */,
-				EA83FA09232FA38D00F7E460 /* AlbumTableViewCell.xib */,
+				EA68A6B62330D2B3007D4EA6 /* ContentCollectionViewCell */,
+				EA68A6B52330D2A6007D4EA6 /* AlbumTableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -178,6 +216,7 @@
 			children = (
 				EA83FA06232F9E5500F7E460 /* LaunchContorllerDelegate.swift */,
 				EA83FA0E232FB8FB00F7E460 /* AlbumCellDelegate.swift */,
+				EA68A6BB2330E7BA007D4EA6 /* AlbumContentDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -251,9 +290,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA68A6BA2330D2D2007D4EA6 /* ContentCollectionViewCell.xib in Resources */,
 				EA83F9F4232F8C8700F7E460 /* AlbumsViewController.xib in Resources */,
 				EA1906B8232F8B850044A17B /* LaunchScreen.storyboard in Resources */,
 				EA83F9FB232F8D3800F7E460 /* LaunchViewController.xib in Resources */,
+				EA68A6C32330F723007D4EA6 /* ContentViewController.xib in Resources */,
 				EA83FA0B232FA38D00F7E460 /* AlbumTableViewCell.xib in Resources */,
 				EA83FA13232FC23900F7E460 /* AlbumContentViewController.xib in Resources */,
 				EA1906B5232F8B850044A17B /* Assets.xcassets in Resources */,
@@ -322,13 +363,16 @@
 				EA83FA01232F8F0D00F7E460 /* DataManager.swift in Sources */,
 				EA83F9F3232F8C8700F7E460 /* AlbumsViewController.swift in Sources */,
 				EA83FA0D232FA5F400F7E460 /* Content.swift in Sources */,
+				EA68A6B92330D2D2007D4EA6 /* ContentCollectionViewCell.swift in Sources */,
 				EA83FA12232FC23900F7E460 /* AlbumContentViewController.swift in Sources */,
 				EA83FA07232F9E5500F7E460 /* LaunchContorllerDelegate.swift in Sources */,
 				EA83FA0F232FB8FB00F7E460 /* AlbumCellDelegate.swift in Sources */,
 				EA83F9FF232F8EF800F7E460 /* NetworkManager.swift in Sources */,
 				EA83FA0A232FA38D00F7E460 /* AlbumTableViewCell.swift in Sources */,
+				EA68A6C22330F723007D4EA6 /* ContentViewController.swift in Sources */,
 				EA83F9FA232F8D3800F7E460 /* LaunchViewController.swift in Sources */,
 				EA83FA03232F8F2700F7E460 /* Album.swift in Sources */,
+				EA68A6BC2330E7BA007D4EA6 /* AlbumContentDelegate.swift in Sources */,
 				EA1906AE232F8B850044A17B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

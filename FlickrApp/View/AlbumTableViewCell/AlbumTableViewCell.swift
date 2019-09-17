@@ -34,14 +34,14 @@ class AlbumTableViewCell: UITableViewCell {
         ibInfoLabel.text = "\(album.itemsAmount) items · \(album.viewsAmount) views · \(album.commentsAmount) comments"
         let networkManager = NetworkManager()
         networkManager.albumCellDelegate = self
-        networkManager.getPrimaryImage(primaryImageId: album.primaryImageId)
+        networkManager.getContent(by: album.primaryImageId)
     }
 }
 
 //MARK: - AlbumCellDelegate
 extension AlbumTableViewCell: AlbumCellDelegate{
     func didFinishDownloadingImageData(content: Content) {
-        ibImageView.sd_setImage(with: content.contentUrl, completed: nil)
+        ibImageView.sd_setImage(with: URL(string: content.originalURL), completed: nil)
         ibImageView.sd_imageIndicator?.stopAnimatingIndicator()
     }
 }
